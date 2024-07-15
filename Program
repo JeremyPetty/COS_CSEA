@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+All Codes
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Enter Your ID</h1>
+        <input type="text" id="userID" placeholder="Enter ID">
+        <button onclick="fetchData()">Submit</button>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+#app {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#userID {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+const data = {
+    "123": "Data for user 123",
+    "456": "Data for user 456",
+    "789": "Data for user 789"
+};
+
+function fetchData() {
+    const userID = document.getElementById('userID').value;
+    const result = document.getElementById('result');
+    
+    if(data[userID]) {
+        result.textContent = data[userID];
+    } else {
+        result.textContent = "No data found for this ID.";
+    }
+}
